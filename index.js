@@ -21,6 +21,10 @@ const createQutoesDiv =(qutoes) => {
     quoteRating.innerText ='Rating : '
     ratingbtn.innerText ="Rate"
 
+    ratinginput.type = "number"
+    ratinginput.min = 1
+    ratinginput.max =10
+
     ratingbtn.addEventListener('click',() =>{
         quoteRating.innerText ='Rating : '+ ratinginput.value
     })
