@@ -8,10 +8,24 @@ const createQutoesDiv =(qutoes) => {
     const qutoescontainer = document.createElement('div')
     const quote= document.createElement('p')
     const character= document.createElement('p')
+    const quoteRating = document.createElement('p')
+    const ratinginput =document.createElement('input')
+    const ratingbtn = document.createElement('button')
+
+
+    quoteRating.id ="quote-rating"
+    ratinginput.id ="quote-rating-input"
+
     quote.innerText = qutoes.quote
     character.innerText = qutoes.character
+    quoteRating.innerText ='Rating : '
+    ratingbtn.innerText ="Rate"
 
-    qutoescontainer.append(quote,character)
+    ratingbtn.addEventListener('click',() =>{
+        quoteRating.innerText ='Rating : '+ ratinginput.value
+    })
+
+    qutoescontainer.append(quote,character,quoteRating,ratinginput,ratingbtn)
     return qutoescontainer
 }
 
