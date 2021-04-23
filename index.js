@@ -25,9 +25,14 @@ const appendQuote = (quoteDiv) => {
    
 }
 const generatequtoe = () =>{
-getqutoes().then((quotes) => {
- const quoteDiv = createQutoesDiv(quotes)
- appendQuote(quoteDiv)
-})
+  getqutoes().then((quotes) => {
+  const quoteDiv = createQutoesDiv(quotes)
+  appendQuote(quoteDiv)
+  })
 }
+const newQbutton = document.getElementById('n-q-btn')
+
+//console.log(newQbutton)
+newQbutton.addEventListener('click' , generatequtoe)
+
 generatequtoe()
