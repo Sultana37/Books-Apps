@@ -15,7 +15,16 @@ const createQutoesDiv =(qutoes) => {
     return qutoescontainer
 }
 
+const appendQuote = (quoteDiv) => {
+    //take in a quotediv
+    //grab a hold of quotes container
+    //append it to the quotescontainer 
+    const quotescontainer = document.getElementById('quote-container')
+    quotescontainer.append(quoteDiv)
+   
+}
+
 getqutoes().then((quotes) => {
  const quoteDiv = createQutoesDiv(quotes)
-console.log(quoteDiv)
+ appendQuote(quoteDiv)
 })
