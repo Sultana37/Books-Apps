@@ -20,11 +20,14 @@ const appendQuote = (quoteDiv) => {
     //grab a hold of quotes container
     //append it to the quotescontainer 
     const quotescontainer = document.getElementById('quote-container')
+    quotescontainer.innerHTML =""
     quotescontainer.append(quoteDiv)
    
 }
-
+const generatequtoe = () =>{
 getqutoes().then((quotes) => {
  const quoteDiv = createQutoesDiv(quotes)
  appendQuote(quoteDiv)
 })
+}
+generatequtoe()
