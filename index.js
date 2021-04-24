@@ -6,6 +6,7 @@ getqutoes().then(console.log)
 
 const createQutoesDiv =(qutoes) => {
     const qutoescontainer = document.createElement('div')
+    const quotescontainertitle=document.createElement('h3')
     const quote= document.createElement('p')
     const character= document.createElement('p')
     const quoteRating = document.createElement('p')
@@ -15,21 +16,23 @@ const createQutoesDiv =(qutoes) => {
 
     quoteRating.id ="quote-rating"
     ratinginput.id ="quote-rating-input"
+    quotescontainertitle.className="q-container"
 
     quote.innerText = qutoes.quote
     character.innerText = qutoes.character
-    quoteRating.innerText ='Rating : '
+    quoteRating.innerText =' Whats your Rating : '
     ratingbtn.innerText ="Rate"
+    quotescontainertitle.innerText="The place where you can find the perfect quotes for you!"
 
     ratinginput.type = "number"
     ratinginput.min = 1
     ratinginput.max =10
 
     ratingbtn.addEventListener('click',() =>{
-        quoteRating.innerText ='Rating : '+ ratinginput.value
+        quoteRating.innerText ='Whats your Rating: '+ ratinginput.value
     })
 
-    qutoescontainer.append(quote,character,quoteRating,ratinginput,ratingbtn)
+    qutoescontainer.append(quotescontainertitle, quote,character,quoteRating,ratinginput,ratingbtn)
     return qutoescontainer
 }
 
