@@ -16,7 +16,7 @@ const createQutoesDiv =(qutoes) => {
 
     quoteRating.id ="quote-rating"
     ratinginput.id ="quote-rating-input"
-    quotescontainertitle.className="q-container"
+    quotescontainertitle.className="quote-container-title"
 
     quote.innerText = qutoes.quote
     character.innerText = qutoes.character
