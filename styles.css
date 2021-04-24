@@ -4,7 +4,8 @@ body {
 }
 
 button{
-    background-color:teal;
+    background-color:black;
+    color:white;
 }
 .quote-container{
     text-align: left;
