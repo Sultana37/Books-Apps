@@ -1,15 +1,13 @@
 body {
     text-align: center;
+   background-color: teal ;
 }
 
-.background-image {
-    background-image: url("https://cdn.wallpapersafari.com/83/72/gUrP7L.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
+
+.quote-container{
+    border: 1px solid black;
+    background: white;
 }
 .quote-container{
-    
+    text-align: center;
 }
