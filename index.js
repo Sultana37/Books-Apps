@@ -20,16 +20,16 @@ const createQutoesDiv =(qutoes) => {
 
     quote.innerText = qutoes.quote
     character.innerText = qutoes.character
-    quoteRating.innerText =' Whats your Rating : '
+    quoteRating.innerText ='Rating : '
     ratingbtn.innerText ="Rate"
-    quotescontainertitle.innerText="The place where you can find the perfect quotes for you!"
+    quotescontainertitle.innerText="Perfect quotes for you!"
 
     ratinginput.type = "number"
     ratinginput.min = 1
     ratinginput.max =10
 
     ratingbtn.addEventListener('click',() =>{
-        quoteRating.innerText ='Whats your Rating: '+ ratinginput.value
+        quoteRating.innerText ='Rating: '+ ratinginput.value
     })
 
     qutoescontainer.append(quotescontainertitle, quote,character,quoteRating,ratinginput,ratingbtn)
