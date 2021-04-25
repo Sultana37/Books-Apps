@@ -4,6 +4,16 @@ return fetch('https://got-quotes.herokuapp.com/quotes')
 }
 getqutoes().then(console.log)
 
+const changeRatingcolor = (quoteRating,ratinginput) => {
+ if (ratinginput.value >= 8) {
+     quoteRating.style.color ="green"
+ } else{
+    quoteRating.style.color ="red"
+ }
+  
+ 
+}
+
 const createQutoesDiv =(qutoes) => {
     const qutoescontainer = document.createElement('div')
     const quotescontainertitle=document.createElement('h3')
@@ -29,6 +39,11 @@ const createQutoesDiv =(qutoes) => {
     ratinginput.max =10
 
     ratingbtn.addEventListener('click',() =>{
+    //create a function that change the rating 
+    //it will take in the quoterating,ratinginput as an argument
+    //conditional logic if ratinginput.value >= 8
+             //quoterating .style.color = "green"
+    changeRatingcolor (quoteRating,ratinginput)
         quoteRating.innerText ='Rating: '+ ratinginput.value
     })
 
@@ -45,11 +60,19 @@ const appendQuote = (quoteDiv) => {
     quotescontainer.append(quoteDiv)
    
 }
+const handleFetchError = ()=>{
+    const quotescontainer =document.getElementById('quote-container')
+    const warning =createElement('p')
+    warning.innerText="something went wrong "
+
+    quotescontainer.append(warning)
+}
 const generatequtoe = () =>{
   getqutoes().then((quotes) => {
   const quoteDiv = createQutoesDiv(quotes)
   appendQuote(quoteDiv)
   })
+  .catch(handleFetchError)
 }
 const newQbutton = document.getElementById('n-q-btn')
 

@@ -1,25 +1,51 @@
 # User Stories
 
 # MVP
- []users should able to see a new quotes when the enter the website
- []users should be able to rate the quotes on a scale of 1 to 10 
- []users should be able see search button for search quotes
- []user should be see new books name if the press the new quote button
+ [x]users should able to see a new quotes when the enter the website
+[x]users should be able see rate button for rate  quotes
+ [x]users should be able to rate the quotes on a scale of 1 to 10 
+ [x]user should be see new quotes and charater name if the press the new quote button
 
 # Stretch
-
+[]If a qoutes is rated 4 or below ,the  screen will turn red
+[]If a quotes is rated 8 or above , the screen will turn green
 
 # ROADMAP
-[]Create file Structure
-[]fetch the data
-  [] Reusable function
-  []use the books api-"https://got-quotes.herokuapp.com/quotes"
+[x]Create file Structure
+[x]fetch the data
+  [x] Reusable function
+  [x]use the books  quotes api-"https://got-quotes.herokuapp.com/quotes"
 
-[] Modify the DOM
- []create a  reuseable div to hold book qutoes
- []Append a new book
- []Remove the old book
+[x] Modify the DOM
+ [x]create a  reuseable div to hold  qutoes
+ [x]Append a new quotes
+ [x]Remove the old quotes
 
-[] Add rating Funcationality
- []this should be unique for each individual book
+[x] Add rating Funcationality
+ [x]this should be unique for each individual qoutes
 
+
+
+
+
+[x] Work for styleing 
+   [x]Title
+     [x]text in center
+     [x]h1
+  [x]background  of page
+   [x]cadetblue
+  [x]Quote container in a box 
+   [x]title/Perfect quotes for you!
+   [x]quote conatiner title in center and h2 format
+   [x]Everything text aligned in left 
+   [x] style for button
+    [x]black background 
+    [x]white text
+  [x]white Quote container background 
+  [x]thicker border
+  [x]drop shadow
+[]Turn rating number green if rating is 8 or above
+ []conditional logic 
+  []if/else sitution 
+  []if rating >=8 make color green 
+  []if rating >=4 make color red
