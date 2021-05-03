@@ -1,12 +1,13 @@
 body {
     text-align: center;
-   background-color:cadetblue ;
+     background-color:cadetblue;
 }
 
 button{
     background-color:black;
     color:white;
 }
+
 .quote-container{
     text-align: left;
     border: 3px solid black;

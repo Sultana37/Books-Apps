@@ -4,24 +4,42 @@ return fetch('https://got-quotes.herokuapp.com/quotes')
 }
 getqutoes().then(console.log)
 
+const getcharacterqutoes= (character) =>{
+    return fetch('https://got-quotes.herokuapp.com/quotes?char=${value}')
+            .then(res => res.json())
+    }
+
+    
+    getcharacterqutoes().then(quotes=> {
+        const quoteDiv = createQutoesDiv(quotes)
+  appendQuote(quoteDiv)
+    })
+
 const changeRatingcolor = (quoteRating,ratinginput) => {
- if (ratinginput.value >= 8) {
+
+    if (ratinginput.value >= 8) {
      quoteRating.style.color ="green"
- } else{
+    }
+    else if(ratinginput.value >= 4){
+        quoteRating.style.color = "blue"
+    }
+     else{
     quoteRating.style.color ="red"
  }
   
- 
 }
+
 
 const createQutoesDiv =(qutoes) => {
     const qutoescontainer = document.createElement('div')
-    const quotescontainertitle=document.createElement('h3')
+    const quotescontainertitle=document.createElement('h2')
     const quote= document.createElement('p')
     const character= document.createElement('p')
     const quoteRating = document.createElement('p')
     const ratinginput =document.createElement('input')
     const ratingbtn = document.createElement('button')
+    const btn = document.querySelector('#btn');
+    const sb = document.querySelector('#framework')
 
 
     quoteRating.id ="quote-rating"
@@ -39,22 +57,21 @@ const createQutoesDiv =(qutoes) => {
     ratinginput.max =10
 
     ratingbtn.addEventListener('click',() =>{
-    //create a function that change the rating 
-    //it will take in the quoterating,ratinginput as an argument
-    //conditional logic if ratinginput.value >= 8
-             //quoterating .style.color = "green"
     changeRatingcolor (quoteRating,ratinginput)
-        quoteRating.innerText ='Rating: '+ ratinginput.value
+       
     })
+   btn.addEventListener('click',()=>{
+    getcharacterqutoes(userselection).then(quotes => {
+        const quoteDiv = createQutoesDiv(quotes)
+      appendQuote(quoteDiv)
+    })
+   })
 
-    qutoescontainer.append(quotescontainertitle, quote,character,quoteRating,ratinginput,ratingbtn)
+    qutoescontainer.append(quotescontainertitle,quote,character,quoteRating,ratinginput,ratingbtn,sb,btn)
     return qutoescontainer
 }
 
 const appendQuote = (quoteDiv) => {
-    //take in a quotediv
-    //grab a hold of quotes container
-    //append it to the quotescontainer 
     const quotescontainer = document.getElementById('quote-container')
     quotescontainer.innerHTML =""
     quotescontainer.append(quoteDiv)
@@ -76,7 +93,6 @@ const generatequtoe = () =>{
 }
 const newQbutton = document.getElementById('n-q-btn')
 
-//console.log(newQbutton)
 newQbutton.addEventListener('click' , generatequtoe)
 
 generatequtoe()
