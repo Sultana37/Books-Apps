@@ -4,16 +4,6 @@ return fetch('https://got-quotes.herokuapp.com/quotes')
 }
 getqutoes().then(console.log)
 
-const getcharacterqutoes= (character) =>{
-    return fetch('https://got-quotes.herokuapp.com/quotes?char=${value}')
-            .then(res => res.json())
-    }
-
-    
-    getcharacterqutoes().then(quotes=> {
-        const quoteDiv = createQutoesDiv(quotes)
-  appendQuote(quoteDiv)
-    })
 
 const changeRatingcolor = (quoteRating,ratinginput) => {
 
@@ -38,8 +28,8 @@ const createQutoesDiv =(qutoes) => {
     const quoteRating = document.createElement('p')
     const ratinginput =document.createElement('input')
     const ratingbtn = document.createElement('button')
-    const btn = document.querySelector('#btn');
-    const sb = document.querySelector('#framework')
+    //const submitbtn = document.getElementById('submit-btn');
+    //const sb = document.getElementById('search')
 
 
     quoteRating.id ="quote-rating"
@@ -60,12 +50,12 @@ const createQutoesDiv =(qutoes) => {
     changeRatingcolor (quoteRating,ratinginput)
        
     })
-   btn.addEventListener('click',()=>{
-    getcharacterqutoes(userselection).then(quotes => {
-        const quoteDiv = createQutoesDiv(quotes)
-      appendQuote(quoteDiv)
-    })
-   })
+
+   //submitbtn.addEventListener('submit',(e)=>{
+   // e.preventDefault();
+    //getcharacterqutoes(sb.value)
+   
+  // })
 
     qutoescontainer.append(quotescontainertitle,quote,character,quoteRating,ratinginput,ratingbtn,sb,btn)
     return qutoescontainer
