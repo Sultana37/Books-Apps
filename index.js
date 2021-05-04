@@ -22,7 +22,6 @@ const getqutoes= () =>{
           alert(err);
         }
         //////////////////////  ///////////////////////////////////
-  
         if (ratinginput.value >= 8) {
           quoteRating.style.color ="green"
          }
@@ -32,7 +31,7 @@ const getqutoes= () =>{
           else{
          quoteRating.style.color ="black"
       }
-    
+ 
   }
   
   
@@ -56,7 +55,7 @@ const getqutoes= () =>{
       character.innerText = qutoes.character
       quoteRating.innerText ='❣❣ Give Your Rating ❣❣'
       ratingbtn.innerText ="Rate"
-      quotescontainertitle.innerText="Perfect quotes for you!"
+      quotescontainertitle.innerText="🎁🎁 Perfect quotes for you!"
   
       ratinginput.type = "number"
       ratinginput.min = 1
@@ -66,12 +65,6 @@ const getqutoes= () =>{
       changeRatingcolor (quoteRating,ratinginput)
          
       })
-  
-     //submitbtn.addEventListener('submit',(e)=>{
-     // e.preventDefault();
-      //getcharacterqutoes(sb.value)
-     
-    // })
   
       qutoescontainer.append(quotescontainertitle,quote,character,quoteRating,ratinginput,ratingbtn)
       return qutoescontainer
@@ -98,26 +91,40 @@ const getqutoes= () =>{
   generatequtoe()
 
     ////////////////// ADDED ///////////////////////////
-function searchChar (char) {
+    function getallcharacterquote (char) {
 
     
-    return fetch('https://got-quotes.herokuapp.com/quotes?char=${char}')
-    .then(resp => resp.json())
-    .then(json =>{
-   
-            let quot= document.createElement('p')
-            const charac= document.createElement('p')
-              quot = json.quote;
-            alert(json.quote)
-            document.getElementById('quote-container2').append(quot);
-    })
-    }
-    let val = document.createElement("INPUT");
-    let search = document.createElement("BUTTON");
-    search.innerHTML = "Search"
-    val.setAttribute("type", "search");
-    document.getElementById('quote-container2').appendChild(val);
-    document.getElementById('quote-container2').appendChild(search);
-    search.addEventListener('click',() =>{
-        searchChar(val.value)
-    })
+      return fetch('https://got-quotes.herokuapp.com/quotes?char=${char}')
+      .then(res => res.json())
+
+     .then(data => {
+     
+              let quot= document.createElement('p')
+              let charac= document.createElement('p')
+              const quotecontainer = document.getElementById('quote-container2');
+              quot = data.quote;
+              charac = data.charac;
+              alert(data.quote)
+              quotecontainer.append(quot);
+
+      })
+      }
+
+      let val = document.querySelector('#quotechar');
+      let search = document.querySelector('#checkbar');
+      const quotecontainer = document.getElementById('quote-container2');
+      //search.innerHTML = "Search"
+      val.setAttribute("type", "search");
+      quotecontainer.appendChild(val);
+      quotecontainer.appendChild(search);
+  
+  
+      search.addEventListener('click',() =>{
+  
+          getallcharacterquote(val.value)
+      })
+
+      //document.querySelector('#checkbar').addEventListener('click', function(){
+     //alert(document.querySelector('#quotechar').value);
+
+     // })s
